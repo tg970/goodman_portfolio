@@ -5,11 +5,11 @@
 
 $(function () {
 	'use strict';
-	
+
 	var width = $(window).width();
 	var height = $(window).height();
 	$('.section.started').css({'height':height});
-	
+
 	/* Preloader */
 	$(window).on('load', function() {
 		$(".preloader .spinner").fadeOut(function(){
@@ -26,8 +26,8 @@ $(function () {
 		loop: true
 	});
 
-	/* Youtube video background */
-	var myPlayer = $("#video-bg").YTPlayer();
+	// /* Youtube video background */
+	// var myPlayer = $("#video-bg").YTPlayer();
 
 	/* Smoothscroll */
 	if($('.section.started').length) {
@@ -49,11 +49,11 @@ $(function () {
 		$('.top-menu ul li a').on('click', function(){
 			var id = $(this).attr('href');
 			var h = parseFloat($(id).offset().top);
-			
+
 			$('body,html').animate({
 				scrollTop: h + 10
 			}, 800);
-			
+
 			return false;
 		});
 	}
@@ -70,7 +70,7 @@ $(function () {
 
 		return false;
 	});
-	
+
 	/* Hide mouse button on scroll */
 	$(window).on('scroll', function() {
 		if ($(this).scrollTop() >= height-10) {
@@ -95,7 +95,7 @@ $(function () {
 			}
 		});
 	}
-	
+
 	/* On click mouse button, page scroll down */
 	$('.section').on('click', '.mouse-btn', function() {
 		$('body,html').animate({
@@ -119,7 +119,7 @@ $(function () {
 
 	/* Initialize masonry items */
 	var $container = $('.box-items');
-	
+
 	$container.imagesLoaded(function() {
 		$container.multipleFilterMasonry({
 			itemSelector: '.box-item',
@@ -128,7 +128,7 @@ $(function () {
 			gutter: 0
 		});
 	});
-	
+
 
 	/* 12. Initialize masonry filter */
 	$('.filters label').on('change', 'input[type="radio"]', function() {
@@ -152,7 +152,7 @@ $(function () {
 		closeBtnInside: true,
 		mainClass: 'mfp-fade'
 	});
-	
+
 	/* gallery */
 	$('.post-lightbox').magnificPopup({
 		delegate: 'a',
@@ -168,7 +168,7 @@ $(function () {
 			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
 		}
 	});
-	
+
 	/* Validate contact form */
 	$("#cform").validate({
 		rules: {
@@ -197,10 +197,10 @@ $(function () {
 				dataType: 'json',
 				data: 'name='+ $("#cform").find('input[name="name"]').val() + '&tel='+ $("#cform").find('input[name="tel"]').val() + '&email='+ $("#cform").find('input[name="email"]').val() + '&subject='+ $("#cform").find('input[name="subject"]').val() + '&message=' + $("#cform").find('textarea[name="message"]').val(),
 				beforeSend: function() {
-				
+
 				},
 				complete: function() {
-				
+
 				},
 				success: function(data) {
 					$('#cform').fadeOut();
@@ -209,7 +209,7 @@ $(function () {
 			});
 		}
 	});
-	
+
 	/* Validate contact form */
 	$("#blog-form").validate({
 		rules: {

@@ -1,3 +1,11 @@
 [
-  "./src/jq/**/*.js"
+  "src/jq/jquery.min.js",
+  "src/jq/jquery.validate.js",
+	"src/jq/masonry.pkgd.js",
+	"src/jq/imagesloaded.pkgd.js",
+	"src/jq/masonry-filter.js",
+	"src/jq/magnific-popup.js",
+	"src/jq/jquery.mb.YTPlayer.js",
+	"src/jq/particles.js",
+	"src/jq/typed.js"
 ]

@@ -36,7 +36,7 @@ gulp.task('css', function() {
 gulp.task('jq', ['clean'], function(cb) {
   pump([
     gulp.src(dependencies),
-    minify(),
+    //minify(),
     concat('jq.js'),
     gulp.dest('./public/js')
   ], cb);
@@ -69,15 +69,20 @@ gulp.task('images', ['clean'], function() {
     .pipe(gulp.dest('./public/images'));
 });
 
+gulp.task('fonts', function() {
+  return gulp.src(['./src/fonts/*.*'])
+    .pipe(gulp.dest('./public/fonts/'));
+});
+
 gulp.task('builder', function() {
-  gulp.start(['css','js','html', 'images']);
+  gulp.start(['css','jq','js','html','images','fonts']);
 });
 
 gulp.task('serve', ['browser-sync'], function() {
   gulp.watch('./src/css/**/*.css', ['css']);
-  gulp.watch('./src/js/**/*.js', ['appJS']);
+  gulp.watch('./src/js/**/*.js', ['js']);
   gulp.watch('./src/html/**/*.html', ['html']);
-  gulp.watch('./src/assets/**/*.*', ['images']);
+  gulp.watch('./src/images/**/*.*', ['images']);
 });
 
 gulp.task('browser-sync', ['nodemon'], function() {
