@@ -25,8 +25,8 @@ gulp.task('clean', function() {
 gulp.task('css', function() {
   gulp.src(styles)
     .pipe(concat('main.css'))
-    .pipe(csso())
-    .pipe(cleanCSS())
+    //.pipe(csso())
+    //.pipe(cleanCSS())
     .pipe(gulp.dest('./public/css'))
     .pipe(browserSync.reload({
       stream: true
