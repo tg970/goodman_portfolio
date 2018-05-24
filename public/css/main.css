@@ -7983,7 +7983,8 @@ blockquote {
 .header .logo {
 	position: relative;
 	float: left;
-	font-family: 'Kaushan Script', helvetica;
+	font-family: 'Raleway', sans-serif;
+	text-shadow: .1px .1px 15px #000000;
 	font-size: 32px;
 	line-height: 46px;
 	font-weight: 600;
@@ -8164,6 +8165,7 @@ blockquote {
 
 .header.filled .logo a {
 	color: #292929;
+	text-shadow: none;
 }
 
 .header.filled .menu-btn span {
@@ -8235,6 +8237,7 @@ blockquote {
 	font-size: 100px;
 	line-height: 100px;
 	color: #ffffff;
+	text-shadow: 1px 1px 10px #000000;
 	font-weight: 600;
 	letter-spacing: -0.045em;
 	transition: all 0.4s ease 0s;
@@ -8263,6 +8266,7 @@ blockquote {
 
 .section.started .socials a .icon {
 	color: #ffffff;
+	text-shadow: 1px 1px 10px #000000;
 }
 
 .section.started .socials a:hover {
@@ -8689,7 +8693,6 @@ footer .copy {
 .mfp-fade.mfp-wrap.mfp-removing .mfp-content {
 	opacity: 0;
 }
-
 
 /* Magnific Popup CSS */
 .mfp-bg {
