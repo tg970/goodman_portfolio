@@ -63,52 +63,52 @@ gulp.task('html', function() {
     }));
 });
 
-// gulp.task('images', ['clean'], function() {
-//   return gulp.src('./src/assets/**/*.*')
-//     .pipe(imagemin({optimizationLevel: 5}))
-//     .pipe(gulp.dest('./public/assets'));
-// });
-//
-// gulp.task('builder', function() {
-//   gulp.start(['css','appJS','html', 'images']);
-// });
-//
-// gulp.task('serve', ['browser-sync'], function() {
-//   gulp.watch('./src/css/**/*.css', ['css']);
-//   gulp.watch('./src/js/**/*.js', ['appJS']);
-//   gulp.watch('./src/html/**/*.html', ['html']);
-//   gulp.watch('./src/assets/**/*.*', ['images']);
-// });
-//
-// gulp.task('browser-sync', ['nodemon'], function() {
-//   browserSync.init(null, {
-//     proxy: "http://localhost:3000",
-//     port: 1122,
-//     open: false
-//   });
-// });
-//
-// gulp.task('nodemon', [], function (done) {
-// 	var running = false;
-//
-// 	return nodemon({
-// 		script: 'server.js',
-//     watch: [
-//       'controllers/**/*.*',
-//       'models/**/*.*',
-//       'data/**/*.*',
-//       'server.js'
-//     ],
-//     ignore: [ 'gulpfile.js', 'node_modules/' ]
-// 	}).on('start', function () {
-// 		if (!running) done();
-//     running = true;
-// 	})
-//   .on('restart', function () {
-//     setTimeout(function () {
-//       reload();
-//     }, 1000);
-//   });
-// });
-//
-// gulp.task('start', ['builder', 'serve']);
+gulp.task('images', ['clean'], function() {
+  return gulp.src('./src/images/**/*.*')
+    .pipe(imagemin({optimizationLevel: 5}))
+    .pipe(gulp.dest('./public/images'));
+});
+
+gulp.task('builder', function() {
+  gulp.start(['css','js','html', 'images']);
+});
+
+gulp.task('serve', ['browser-sync'], function() {
+  gulp.watch('./src/css/**/*.css', ['css']);
+  gulp.watch('./src/js/**/*.js', ['appJS']);
+  gulp.watch('./src/html/**/*.html', ['html']);
+  gulp.watch('./src/assets/**/*.*', ['images']);
+});
+
+gulp.task('browser-sync', ['nodemon'], function() {
+  browserSync.init(null, {
+    proxy: "http://localhost:3000",
+    port: 1122,
+    open: false
+  });
+});
+
+gulp.task('nodemon', [], function (done) {
+	var running = false;
+
+	return nodemon({
+		script: 'server.js',
+    watch: [
+      'controllers/**/*.*',
+      'models/**/*.*',
+      'data/**/*.*',
+      'server.js'
+    ],
+    ignore: [ 'gulpfile.js', 'node_modules/' ]
+	}).on('start', function () {
+		if (!running) done();
+    running = true;
+	})
+  .on('restart', function () {
+    setTimeout(function () {
+      reload();
+    }, 1000);
+  });
+});
+
+gulp.task('start', ['builder', 'serve']);
