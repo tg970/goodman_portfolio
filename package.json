@@ -1,0 +1,39 @@
+{
+  "name": "goodman_portfolio",
+  "version": "1.0.0",
+  "description": "Responsive portfolio site for Tyler Goodman",
+  "main": "sever.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tg970/goodman_portfolio.git"
+  },
+  "author": "Tyler Goodman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tg970/goodman_portfolio/issues"
+  },
+  "homepage": "https://github.com/tg970/goodman_portfolio#readme",
+  "dependencies": {
+    "angular": "^1.7.0",
+    "express": "^4.16.3",
+    "request": "^2.87.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.24.4",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^3.0.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0",
+    "path": "^0.12.7",
+    "pump": "^3.0.0",
+    "uglify-es": "^3.3.9"
+  }
+}
