@@ -24,7 +24,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('css', ['less'], function() {
-  gulp.src(styles)
+  gulp.src('./src/cssLib/**/*.css')
     .pipe(concat('main.css'))
     //.pipe(csso())
     //.pipe(cleanCSS())

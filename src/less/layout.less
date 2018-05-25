@@ -88,6 +88,11 @@
 		}
 		&.active {
 			margin-right: 225px;
+			z-index: 100;
+			transform: translateY(-10px);
+			@media (max-width: 461px) {
+				transform: translatey(-50px);
+			}
 			span {
 				background: none!important;
 				&:before {
