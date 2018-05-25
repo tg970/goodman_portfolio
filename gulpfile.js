@@ -23,7 +23,7 @@ gulp.task('clean', function() {
   return del(['build']);
 });
 
-gulp.task('css', function() {
+gulp.task('css', ['less'], function() {
   gulp.src(styles)
     .pipe(concat('main.css'))
     //.pipe(csso())
@@ -32,14 +32,15 @@ gulp.task('css', function() {
     .pipe(browserSync.reload({
       stream: true
     }));
-  // gulp.src('./src/less/**/*.less')
-  //   .pipe(sourcemaps.init())
-  //   .pipe(less())
-  //   .pipe(sourcemaps.write())
-  //   .pipe(gulp.dest('./public/css'));
 });
 
-
+gulp.task('less', function() {
+  gulp.src('./src/less/**/*.less')
+    .pipe(sourcemaps.init())
+    .pipe(less())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./src/cssLib'));
+});
 
 gulp.task('jq', ['clean'], function(cb) {
   pump([
