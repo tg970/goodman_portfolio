@@ -139,6 +139,7 @@ $(function () {
 
 	/* 12. Initialize masonry filter */
 	$('.filters label').on('change', 'input[type="radio"]', function() {
+		// console.log('running');
 		if ($(this).is(':checked')) {
 			$('.f_btn').removeClass('active');
 			$(this).closest('.f_btn').addClass('active');
