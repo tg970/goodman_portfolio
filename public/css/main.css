@@ -8108,10 +8108,14 @@ blockquote {
 .header .top-menu ul li:hover a,
 .header .top-menu ul li.active a {
 	color: #292929;
-	box-shadow: inset 0 -6px 0 #7b8ffd;
-	-moz-box-shadow: inset 0 -6px 0 #7b8ffd;
-	-webkit-box-shadow: inset 0 -6px 0 #7b8ffd;
-	-khtml-box-shadow: inset 0 -6px 0 #7b8ffd;
+	box-shadow: inset 0 -10px 15px #7b8ffd;
+	/* -moz-box-shadow: 0 -6px 0 #7b8ffd;
+	-webkit-box-shadow: 0 -6px 0 #7b8ffd;
+	-khtml-box-shadow: 0 -6px 0 #7b8ffd; */
+}
+
+.close {
+	display: none;
 }
 
 @media (max-width: 1079px) {
