@@ -3,6 +3,7 @@ const nodemon = require('gulp-nodemon');
 const concat = require('gulp-concat');
 const cleanCSS = require('gulp-clean-css');
 const csso = require('gulp-csso');
+const less = require('gulp-less');
 const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync').create();
 let reload = browserSync.reload;
@@ -31,7 +32,14 @@ gulp.task('css', function() {
     .pipe(browserSync.reload({
       stream: true
     }));
+  // gulp.src('./src/less/**/*.less')
+  //   .pipe(sourcemaps.init())
+  //   .pipe(less())
+  //   .pipe(sourcemaps.write())
+  //   .pipe(gulp.dest('./public/css'));
 });
+
+
 
 gulp.task('jq', ['clean'], function(cb) {
   pump([
