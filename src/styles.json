@@ -1,3 +1,4 @@
 [
-  "./src/cssLib/**/*.css"
+  "./src/cssLib/**/*.css",
+  "./src/css/**/*.css"
 ]
