@@ -22,7 +22,7 @@ $(function () {
 	$('.typed-title').typed({
 		stringsElement: $('.typing-title'),
 		backDelay: 5000, /* Delay in text change */
-		typeSpeed: 0, /* Typing speed */
+		typeSpeed: 20, /* Typing speed */
 		loop: true
 	});
 
@@ -32,11 +32,13 @@ $(function () {
 	/* Smoothscroll */
 	if($('.section.started').length) {
 		$(window).on('scroll', function(){
-			var scrollPos = $(window).scrollTop() + 90;
+			var scrollPos = $(window).scrollTop() + 150;
+			//console.log(scrollPos);
 			$('.top-menu ul li a')
 			.each(function () {
 				var currLink = $(this);
 				var refElement = $(currLink.attr("href"));
+				//console.log('=>',refElement.offset().top);
 				if (refElement.offset().top <= scrollPos) {
 					$('.top-menu ul li').removeClass("active");
 					currLink.closest('li').addClass("active");
@@ -54,7 +56,7 @@ $(function () {
 			var h = parseFloat($(id).offset().top);
 
 			$('body,html').animate({
-				scrollTop: h
+				scrollTop: h - 65
 			}, 800);
 			return false;
 		});
