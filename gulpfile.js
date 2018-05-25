@@ -34,12 +34,13 @@ gulp.task('css', ['less'], function() {
     }));
 });
 
-gulp.task('less', function() {
+gulp.task('less', function(cb) {
   gulp.src('./src/less/**/*.less')
     .pipe(sourcemaps.init())
     .pipe(less())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./src/cssLib'));
+  cb();
 });
 
 gulp.task('jq', ['clean'], function(cb) {
