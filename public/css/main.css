@@ -8033,7 +8033,15 @@ blockquote {
 }
 
 .header .menu-btn.active {
-	margin-right: 225px;
+	margin-right: 125px;
+	z-index: 100;
+	transform: translatey(-10px);
+}
+
+@media (max-width: 461px) {
+	.header .menu-btn.active {
+		transform: translatey(-50px);
+	}
 }
 
 .header .menu-btn.active span {
