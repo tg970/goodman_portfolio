@@ -299,7 +299,7 @@ strong {
 }
 
 /* 5. Links */
-a { 
+a {
 	color: @dark-color;
 	text-decoration: none;
 	opacity: 1;
@@ -314,16 +314,17 @@ a.btn, .btn {
 	padding: 2px 0 0 0;
 	display: inline-block;
 	vertical-align: top;
-	font-size: @extra-small-size;
+	font-size: @default-size;
 	color: @dark-color;
 	letter-spacing: 0.2em;
 	font-weight: 500;
 	line-height: 12px;
 	text-transform: uppercase;
 	cursor: pointer;
-	.box-shadow(inset 0 -6px 0 @active-color);
+	.box-shadow(inset 0 -2px 0 @active-color);
 	.transition(@default-transition);
 	&:hover {
+		color: @light-color;
 		.box-shadow(inset 0 -14px 0 @active-color);
 	}
 }
@@ -403,7 +404,7 @@ button {
 	cursor: pointer;
 }
 
-label, legend { 
+label, legend {
 	display: block;
 	padding-bottom: 10px;
 	font-family: @default-font;
@@ -411,20 +412,20 @@ label, legend {
 }
 
 fieldset {
-	border-width: 0; 
-	padding: 0; 
+	border-width: 0;
+	padding: 0;
 }
 
-input[type="checkbox"], 
-input[type="radio"] { 
-	display: inline; 
+input[type="checkbox"],
+input[type="radio"] {
+	display: inline;
 }
 
 ::-webkit-input-placeholder {
 	color: @default-color;
 }
 
-:-moz-placeholder { 
+:-moz-placeholder {
 	color: @default-color;
 }
 
@@ -432,7 +433,7 @@ input[type="radio"] {
 	color: @default-color;
 }
 
-:-ms-input-placeholder {  
+:-ms-input-placeholder {
 	color: @default-color;
 }
 
@@ -440,7 +441,7 @@ input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholde
 	color: @dark-color;
 }
 
-input:focus:-moz-placeholder, textarea:focus:-moz-placeholder { 
+input:focus:-moz-placeholder, textarea:focus:-moz-placeholder {
 	color: @dark-color;
 }
 
@@ -448,7 +449,7 @@ input:focus::-moz-placeholder, textarea:focus::-moz-placeholder {
 	color: @dark-color;
 }
 
-input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder {  
+input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder {
 	color: @dark-color;
 }
 
@@ -456,42 +457,42 @@ label.error {
 	display: none!important;
 }
 
-input.error::-moz-placeholder, 
+input.error::-moz-placeholder,
 textarea.error::-moz-placeholder {
 	color: @error-color;
 }
 
-input.error:-moz-placeholder, 
+input.error:-moz-placeholder,
 textarea.error:-moz-placeholder {
 	color: @error-color;
 }
 
-input.error:-ms-input-placeholder, 
+input.error:-ms-input-placeholder,
 textarea.error:-ms-input-placeholder {
 	color: @error-color;
 }
 
-input.error::-webkit-input-placeholder, 
+input.error::-webkit-input-placeholder,
 textarea.error::-webkit-input-placeholder {
 	color: @error-color;
 }
 
 /* 9. Lists */
-ol, ul { 
+ol, ul {
 	list-style: none;
-	margin-top: 0px; 
+	margin-top: 0px;
 	margin-bottom: 0px;
-	padding-left: 0px; 
+	padding-left: 0px;
 }
 
-ul ul, 
+ul ul,
 ul ol,
-ol ol, 
-ol ul { 
+ol ol,
+ol ul {
 	margin-bottom: 0px;
 }
 
-li { 
+li {
 	margin-bottom: 0px;
 }
 
@@ -517,14 +518,14 @@ th {
 	border: none;
 	border-bottom: 1px solid @light-color;
 	color: @dark-color;
-	padding: 12px 15px; 
+	padding: 12px 15px;
 	text-align: left;
 }
 
 td {
 	border: none;
 	border-bottom: 1px solid @light-color;
-	padding: 12px 15px; 
+	padding: 12px 15px;
 	text-align: left;
 	color: @default-color;
 }
@@ -542,21 +543,21 @@ td {
 	text-align: left !important;
 }
 
-.pull-right { 
+.pull-right {
 	float: right !important;
 }
 
-.pull-left { 
-	float: left !important; 
+.pull-left {
+	float: left !important;
 }
 
-.pull-none { 
+.pull-none {
 	float: none !important;
 }
 
 .full-width {
 	max-width: 100% !important;
-	width: 100% !important; 
+	width: 100% !important;
 }
 
 .full-max-width {
