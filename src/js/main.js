@@ -38,10 +38,11 @@ $(function () {
 			.each(function () {
 				var currLink = $(this);
 				var refElement = $(currLink.attr("href"));
-				//console.log('=>',refElement.offset().top);
-				if (refElement.offset().top <= scrollPos) {
-					$('.top-menu ul li').removeClass("active");
-					currLink.closest('li').addClass("active");
+				var offset = refElement.offset().top
+				if ( offset <= scrollPos) {
+					$('.top-menu ul li.active').removeClass("active");
+					//console.log(currLink.parent());
+					currLink.parent().addClass("active");
 				}
 			});
 		});
