@@ -10,6 +10,13 @@ $(function () {
 	var height = $(window).height();
 	$('.section.started').css({'height':height});
 
+	let devMode = false;
+	let pathname = window.location.host;
+	if (pathname === 'localhost:1122') {
+		console.log('devMode');
+		devMode = true;
+	}
+
 	/* Preloader */
 	$(window).on('load', function() {
 		$(".preloader .spinner").fadeOut(function(){
@@ -152,8 +159,8 @@ $(function () {
 			mainClass: 'mfp-fade',
 			callbacks: {
 		    open: function() {
-		      console.log('magnificPopup open call back');
-					wakeUp(serverURLs[this.currItem.src]);
+		      console.log('wake up server f(x)');
+					if (!devMode) wakeUp(serverURLs[this.currItem.src]);
 		    }
 			}
 		});
@@ -167,8 +174,8 @@ $(function () {
 		mainClass: 'mfp-fade',
 		callbacks: {
 	    open: function() {
-	      console.log('magnificPopup open call back');
-				wakeUp(serverURLs[this.currItem.src]);
+	      console.log('wake up server f(x)');
+				if (!devMode) wakeUp(serverURLs[this.currItem.src]);
 	    }
 		}
 	});
@@ -266,9 +273,6 @@ $(function () {
 		$.ajax({
 			url: url,
 			method: 'GET',
-      headers: {
-        'Access-Control-Allow-Origin': '*'
-      },
 			success: function(response) {
 				console.log('jq ajax call success');
 				console.log(result);
