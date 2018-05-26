@@ -149,7 +149,13 @@ $(function () {
 			type: 'inline',
 			overflowY: 'auto',
 			closeBtnInside: true,
-			mainClass: 'mfp-fade'
+			mainClass: 'mfp-fade',
+			callbacks: {
+		    open: function() {
+		      console.log('magnificPopup open call back');
+					wakeUp(serverURLs[this.currItem.src]);
+		    }
+			}
 		});
 	});
 
@@ -158,7 +164,13 @@ $(function () {
 		type: 'inline',
 		overflowY: 'auto',
 		closeBtnInside: true,
-		mainClass: 'mfp-fade'
+		mainClass: 'mfp-fade',
+		callbacks: {
+	    open: function() {
+	      console.log('magnificPopup open call back');
+				wakeUp(serverURLs[this.currItem.src]);
+	    }
+		}
 	});
 
 	/* gallery */
@@ -238,5 +250,35 @@ $(function () {
 			$('.alert-success').delay(1000).fadeIn();
 		}
 	});
+
+	const serverURLs = {
+		"#bopz": 'https://business-opz.herokuapp.com/',
+		"#dotti": 'https://dotti-agency.herokuapp.com/',
+		"#xc": 'https://xcursion.herokuapp.com/',
+		"#toolie": 'https://tooliebox.herokuapp.com/',
+		"#sailors": 'https://tg970.github.io/tg.com/',
+		"#time": 'https://timesheets-io.herokuapp.com/'
+	}
+
+	//wake up project servers
+	const wakeUp = (url) => {
+		console.log('wake up running', url);
+		$.ajax({
+			url: url,
+			method: 'GET',
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      },
+			success: function(response) {
+				console.log('jq ajax call success');
+				console.log(result);
+			},
+			error: function(xhr) {
+	      console.log('ajax error');
+				//console.log(xhr);
+	    }
+		})
+	}
+	//wakeUp('https://dryhollow.herokuapp.com/');
 
 });
