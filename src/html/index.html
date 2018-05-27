@@ -28,7 +28,7 @@
 
 </head>
 
-<body>
+<body ng-app='goodman_app' ng-controller='NavController as ctrl'>
 
 	<!-- Page -->
 	<div class="page">
@@ -48,7 +48,7 @@
 		<header class="header">
 			<div class="fw">
 				<div class="logo">
-					<a href="#">T. GOODMAN</a>
+					<a href="#">T. GOODMAN {{ctrl.test}}</a>
 				</div>
 				<a href="#" class="menu-btn"><span></span></a>
 				<div class="top-menu">
