@@ -6,10 +6,8 @@
 $(function () {
 	'use strict';
 
-	var width = $(window).width();
-	var height = $(window).height();
-	$('.section.started').css({'height':height});
-
+	var width;
+	var height;
 	let devMode = false;
 	let pathname = window.location.host;
 	if (pathname === 'localhost:1122') {
@@ -17,8 +15,45 @@ $(function () {
 		devMode = true;
 	}
 
+		/* Smoothscroll */
+	const smooth = () => {
+		$(window).on('scroll', function(){
+			var scrollPos = $(window).scrollTop() + 150;
+			//console.log(scrollPos);
+			$('.top-menu ul li a')
+			.each(function () {
+				var currLink = $(this);
+				var refElement = $(currLink.attr("href"));
+				var offset = refElement.offset().top
+				if ( offset <= scrollPos) {
+					$('.top-menu ul li.active').removeClass("active");
+					//console.log(currLink.parent());
+					currLink.parent().addClass("active");
+				}
+			});
+		});
+		/* Top Menu */
+		if($('.section.started').length) {
+			let menu = $('.top-menu ul li a')
+			menu.on('click', function(){
+				openSideNav();
+				var id = $(this).attr('href');
+				var h = parseFloat($(id).offset().top);
+
+				$('body,html').animate({
+					scrollTop: h - 65
+				}, 800);
+				return false;
+			});
+		}
+	}
+
 	/* Preloader */
 	$(window).on('load', function() {
+		width = $(window).width();
+		height = $(window).height();
+		$('.section.started').css({'height':height});
+		smooth();
 		$(".preloader .spinner").fadeOut(function(){
 			$('.preloader').fadeOut();
 			$('body').addClass('ready');
@@ -36,39 +71,8 @@ $(function () {
 	// /* Youtube video background */
 	// var myPlayer = $("#video-bg").YTPlayer();
 
-	/* Smoothscroll */
-	if($('.section.started').length) {
-		$(window).on('scroll', function(){
-			var scrollPos = $(window).scrollTop() + 150;
-			//console.log(scrollPos);
-			$('.top-menu ul li a')
-			.each(function () {
-				var currLink = $(this);
-				var refElement = $(currLink.attr("href"));
-				var offset = refElement.offset().top
-				if ( offset <= scrollPos) {
-					$('.top-menu ul li.active').removeClass("active");
-					//console.log(currLink.parent());
-					currLink.parent().addClass("active");
-				}
-			});
-		});
-	}
 
-	/* Top Menu */
-	if($('.section.started').length) {
-		let menu = $('.top-menu ul li a')
-		menu.on('click', function(){
-			openSideNav();
-			var id = $(this).attr('href');
-			var h = parseFloat($(id).offset().top);
 
-			$('body,html').animate({
-				scrollTop: h - 65
-			}, 800);
-			return false;
-		});
-	}
 
 	const openSideNav = () => {
 		if($('.top-menu').hasClass('active')){

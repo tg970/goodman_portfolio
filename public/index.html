@@ -32,9 +32,21 @@
 
 <body ng-app='goodman_app' ng-controller='NavController as ctrl'>
 
+	<!-- Preloader -->
+	<div class="preloader">
+		<div class="centrize full-width">
+			<div class="vertical-center">
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- Page -->
-	<div class="page" ng-view>
-		
+	<div class="page" ng-include="'pages/home.html'">
+
 	</div>
 
 	<!-- jQuery Scripts -->
