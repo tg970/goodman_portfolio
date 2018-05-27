@@ -28,7 +28,7 @@
 
 </head>
 
-<body>
+<body ng-app='goodman_app' ng-controller='NavController as ctrl'>
 
 	<!-- Page -->
 	<div class="page">
@@ -362,12 +362,12 @@
 								<div class="image">
 									<a href="blog-inner.html"><img src="images/blog/blog1.png" alt="" /></a>
 								</div>
-								<a href="blog-inner.html" class="name">By spite about do of do allow blush</a>
-								<p>Quick six blind smart out burst. Perfectly on furniture dejection determine my depending an to. Add short water court fat.</p>
-								<div class="date">Larry Stark - 7 September 2016</div>
+								<a href="blog-inner.html" class="name">Goodman Portfolio Now In Development</a>
+								<p>This site, the personal portfolio for Tyler Goodman, is currently being worked on and will have regular updates. Check back soon for more info.</p>
+								<div class="date">Tyler Goodman, May 2018</div>
 							</div>
 						</div>
-						<div class="col col-m-12 col-t-4 col-d-4">
+						<!-- <div class="col col-m-12 col-t-4 col-d-4">
 							<div class="blog-item">
 								<div class="image">
 									<a href="blog-inner.html"><img src="images/blog/blog2.png" alt="" /></a>
@@ -386,7 +386,7 @@
 								<p>Quick six blind smart out burst. Perfectly on furniture dejection determine my depending an to. Add short water court fat.</p>
 								<div class="date">Larry Stark - 7 September 2016</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
                     <div class="bts">
                         <a href="blog.html" class="btn extra">View Blog</a>
@@ -442,21 +442,8 @@
 			</div>
 
 			<!-- Footer -->
-			<footer class="align-center">
-				<div class="socials">
-					<a target="blank" href="https://www.linkedin.com/in/thetylergoodman/">
-						<i class="icon ion ion-social-linkedin"></i></a>
-					<a target="blank" href="https://github.com/tg970">
-						<i class="icon ion ion-social-github"></i></a>
-					<a target="blank" href="https://www.facebook.com/tylergoodmaninc">
-						<i class="icon ion ion-social-facebook"></i></a>
-					<a target="blank" href="https://www.instagram.com/tg970/">
-						<i class="icon ion ion-social-instagram"></i></a>
+			<footer class="align-center" ng-include="'comp/footer.html'">
 
-					<!-- <a target="blank" href="https://www.youtube.com"><i class="icon ion ion-social-youtube"></i></a> -->
-					<!-- <a target="blank" href="https://plus.google.com"><i class="icon ion ion-social-googleplus"></i></a> -->
-				</div>
-				<div class="copy">© 2018 Tyler Goodman. all rights reserved.</div>
 			</footer>
 
 		</div>

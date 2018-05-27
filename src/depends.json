@@ -7,5 +7,7 @@
 	"src/jq/magnific-popup.js",
 	"src/jq/jquery.mb.YTPlayer.js",
 	"src/jq/particles.js",
-	"src/jq/typed.js"
+	"src/jq/typed.js",
+  "./node_modules/angular/angular.js",
+  "./node_modules/angular-route/angular-route.js"
 ]
