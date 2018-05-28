@@ -13,8 +13,10 @@ $(function () {
 	let devMode = false;
 	let pathname = window.location.host;
 	if (pathname === 'localhost:1122') {
-		console.log('devMode');
+		console.log('devMode: ', pathname);
 		devMode = true;
+	} else {
+		console.log('production: ', pathname);
 	}
 
 	/* Preloader */
