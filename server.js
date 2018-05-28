@@ -10,6 +10,7 @@ if (app.get('env') == 'development') require('dotenv').config()
 
 // CONFIG
 const PORT       = process.env.PORT || 3000;
+console.log(process.env.SENDGRID_API_KEY);
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // Middleware
