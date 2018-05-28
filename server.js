@@ -26,10 +26,11 @@ app.post('/contact', async (req, res) => {
     console.log(req.body);
     const msg = {
       to: req.body.email,
+      cc: 'snowbdr2332@gmail.com',
       from: 'info@tylergoodman.com',
       subject: req.body.subject,
       text: req.body.message,
-      html: `<strong>${req.body.message}</strong>`,
+      html: `Here's a copy of your message: <strong>${req.body.message}</strong>`,
     };
     const send = await sgMail.send(msg)
     res.status(200).json({send});
