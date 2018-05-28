@@ -10,7 +10,6 @@ if (app.get('env') == 'development') require('dotenv').config()
 
 // CONFIG
 const PORT       = process.env.PORT || 3000;
-console.log(process.env.SENDGRID_API_KEY);
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // Middleware
@@ -27,15 +26,15 @@ app.post('/contact', async (req, res) => {
     console.log(req.body);
     const msg = {
       to: req.body.email,
-      from: 'tgoodman@outlook.com',
+      from: 'info@tylergoodman.com',
       subject: req.body.subject,
       text: req.body.message,
-      html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+      html: `<strong>${req.body.message}</strong>`,
     };
     const send = await sgMail.send(msg)
-    res.status(200).json({});
+    res.status(200).json({send});
   } catch (e) {
-    console.log(e.response.body.errors);
+    console.log(e.response.body);
     res.status(400).json({err: e.message});
   }
 });
