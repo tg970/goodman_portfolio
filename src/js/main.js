@@ -177,7 +177,7 @@ $(function () {
 		callbacks: {
 	    open: function() {
 	      console.log('wake up server f(x)');
-				if (!devMode) wakeUp(serverURLs[this.currItem.src]);
+				// if (!devMode) wakeUp(serverURLs[this.currItem.src]);
 	    }
 		}
 	});
