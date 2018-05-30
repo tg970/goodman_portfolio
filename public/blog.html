@@ -38,7 +38,7 @@
 
 </head>
 
-<body>
+<body ng-app='goodman_app' ng-controller='NavController as ctrl'>
 
 	<!-- Page -->
 	<div class="page">
@@ -155,15 +155,8 @@
 			</div>
 
 			<!-- Footer -->
-			<footer class="align-center">
-				<div class="socials">
-					<a target="blank" href="https://www.facebook.com"><i class="icon ion ion-social-facebook"></i></a>
-					<a target="blank" href="https://github.com"><i class="icon ion ion-social-github"></i></a>
-					<a target="blank" href="https://twitter.com"><i class="icon ion ion-social-twitter"></i></a>
-					<a target="blank" href="https://www.youtube.com"><i class="icon ion ion-social-youtube"></i></a>
-					<a target="blank" href="https://plus.google.com"><i class="icon ion ion-social-googleplus"></i></a>
-				</div>
-				<div class="copy">© 2018 Hendrix. all rights reserved.</div>
+			<footer class="align-center" ng-include="'comp/footer.html'">
+
 			</footer>
 
 		</div>
