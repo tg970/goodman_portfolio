@@ -12,7 +12,8 @@ $(function () {
 
 	let devMode = false;
 	let pathname = window.location.host;
-	if (pathname === 'localhost:1122') {
+	pathname = pathname.slice(0,9)
+	if (pathname === 'localhost') {
 		console.log('devMode: ', pathname);
 		devMode = true;
 	} else {
@@ -176,7 +177,7 @@ $(function () {
 		mainClass: 'mfp-fade',
 		callbacks: {
 	    open: function() {
-	      console.log('wake up server f(x)');
+	      // console.log('wake up server f(x)');
 				// if (!devMode) wakeUp(serverURLs[this.currItem.src]);
 	    }
 		}
