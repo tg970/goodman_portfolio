@@ -17,9 +17,9 @@
   },
   "homepage": "https://github.com/tg970/goodman_portfolio#readme",
   "dependencies": {
-    "@sendgrid/mail": "^6.2.1",
-    "angular": "^1.7.0",
-    "angular-route": "^1.7.0",
+    "@sendgrid/mail": "^6.3.1",
+    "angular": "^1.7.2",
+    "angular-route": "^1.7.2",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "gulp-less": "^3.5.0",
@@ -28,7 +28,7 @@
     "request": "^2.87.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.24.4",
+    "browser-sync": "^2.24.5",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.9.4",

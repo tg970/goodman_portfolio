@@ -3,7 +3,6 @@ const app = angular.module('goodman_app', []);
 app.controller('NavController', ['$http', '$scope', '$location',function($http, $scope, $location) {
   //this.test = 'Yo Yo, its working';
 
-
   this.goTime = (url) => {
     let name = url.slice(8,url.indexOf('.'))
     console.log(`Waking up ${name}`);
@@ -24,8 +23,10 @@ app.controller('NavController', ['$http', '$scope', '$location',function($http, 
     'https://xcursion.herokuapp.com/'
   ]
 
-  for (let url of this.urls) {
-    this.goTime(url);
-  }
+  if ($location.absUrl().slice(7, 16) != 'localhost') {
+    for (let url of this.urls) {
+      this.goTime(url);
+    }
+  };
 
 }]);
