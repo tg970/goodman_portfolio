@@ -20,7 +20,6 @@ app.use(morgan('tiny', {
   skip: function(req, res) { return req.url.indexOf('/socket.io') !== -1 }
 }));
 
-// READ
 app.post('/contact', async (req, res) => {
   try {
     // console.log(req.body);
@@ -39,6 +38,14 @@ app.post('/contact', async (req, res) => {
     res.status(400).json({err: e.message});
   }
 });
+
+app.post('/blog', (req, res) => {
+  try {
+    res.status(200).json({hello: 'hello'})
+  } catch (e) {
+    res.status(400).json({err: e.message});
+  }
+})
 
 
 // using SendGrid's v3 Node.js Library
