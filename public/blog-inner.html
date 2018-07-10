@@ -140,17 +140,18 @@
 									</div>
 
 									<div class="col-md-12">
+										{{ ctrl.getComments('storm') }}
 										<h3 class="subtitle">Post Comments</h3>
 										<ul class="post-comment">
-											<li>
+											<li ng-repeat="entry in ctrl.comments">
 												<img src="images/person-1.jpg" alt="">
 												<div class="comment-info">
 													<div class="name">
-														<h3>Mary R. Peterson</h3>
-														<span>Sep 26, 2016 at 14:35</span>
+														<h3>{{entry.name}}</h3>
+														<span>{{entry.createdAt | date: "MMM d, y h:mm a" }}</span>
 														<a href="#blog-form"> Reply </a>
 													</div>
-													<p>Kept in sent gave feel will oh it we. Has pleasure procured men laughing shutters nay. Old insipidity motionless continuing law shy partiality. </p>
+													<p>{{entry.comment}}</p>
 												</div>
 											</li>
 											<!-- <li>
