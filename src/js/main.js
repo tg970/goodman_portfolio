@@ -1,8 +1,3 @@
-/**
-*	Hendrix (HTML)
-*	Copyright © Hendrix by beshleyua. All Rights Reserved.
-**/
-
 $(function () {
 	'use strict';
 
@@ -235,6 +230,10 @@ $(function () {
 				success: function(data) {
 					$('#cform').fadeOut();
 					$('.alert-success').delay(1000).fadeIn();
+				},
+				error: function (data) {
+					console.log('error f(x)');
+					console.log(data);
 				}
 			});
 		}

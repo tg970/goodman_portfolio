@@ -23,14 +23,14 @@ app.use(morgan('tiny', {
 // READ
 app.post('/contact', async (req, res) => {
   try {
-    console.log(req.body);
+    // console.log(req.body);
     const msg = {
       to: req.body.email,
       cc: 'snowbdr2332@gmail.com',
       from: 'info@tylergoodman.com',
       subject: req.body.subject,
       text: req.body.message,
-      html: `Here's a copy of your message: <strong>${req.body.message}</strong>`,
+      html: `Here's a copy of your message: </br> </br> <strong>${req.body.message}</strong>`,
     };
     const send = await sgMail.send(msg)
     res.status(200).json({send});
