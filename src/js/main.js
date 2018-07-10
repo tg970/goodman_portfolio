@@ -1,3 +1,7 @@
+const blogValidate = () => {
+	$('#blog-form').submit();
+}
+
 $(function () {
 	'use strict';
 
@@ -216,6 +220,7 @@ $(function () {
 		},
 		success: "valid",
 		submitHandler: function() {
+			console.log('yep!!');
 			$.ajax({
 				url: 'contact',
 				type: 'post',
@@ -255,8 +260,10 @@ $(function () {
 		},
 		success: "valid",
 		submitHandler: function() {
-			$('#blog-form').fadeOut();
-			$('.alert-success').delay(1000).fadeIn();
+			console.log('yep yep!!');
+			return false;
+			// $('#blog-form').fadeOut();
+			// $('.alert-success').delay(1000).fadeIn();
 		}
 	});
 

@@ -1,6 +1,7 @@
 // DEPENDENCIES
 const express    = require('express');
 const app        = express();
+const mongoose   = require('mongoose');
 const sgMail     = require('@sendgrid/mail');
 const morgan     = require('morgan');
 require('pretty-error').start();
@@ -10,7 +11,19 @@ if (app.get('env') == 'development') require('dotenv').config()
 
 // CONFIG
 const PORT       = process.env.PORT || 3000;
+const mongoURI   = process.env.MONGODB_URI || 'mongodb://localhost/goodman_portfolio';
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+// Connect to Mongo
+mongoose.connect (mongoURI );
+const db = mongoose.connection;
+db.on( 'error', ( err ) =>
+  console.log( err.message + ' is Mongod not running?' ));
+db.on( 'connected', () =>
+  console.log( 'Mongo OK'));
+db.on( 'disconnected', () =>
+  console.log( 'Mongo Disconnected' ));
+mongoose.Promise = global.Promise;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -19,6 +32,11 @@ app.use(express.static('public'));
 app.use(morgan('tiny', {
   skip: function(req, res) { return req.url.indexOf('/socket.io') !== -1 }
 }));
+
+// Controllers
+const blogCtrl = require( './controllers/blogCtrl' );
+app.use('/blog', blogCtrl);
+
 
 app.post('/contact', async (req, res) => {
   try {
@@ -39,19 +57,11 @@ app.post('/contact', async (req, res) => {
   }
 });
 
-app.post('/blog', (req, res) => {
-  try {
-    res.status(200).json({hello: 'hello'})
-  } catch (e) {
-    res.status(400).json({err: e.message});
-  }
-})
+
 
 
 // using SendGrid's v3 Node.js Library
 // https://github.com/sendgrid/sendgrid-nodejs
-
-
 
 
 app.get('/:whatever', (req, res) => res.redirect('/'))
