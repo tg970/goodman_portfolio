@@ -1,6 +1,11 @@
 const blogValidate = () => {
 	$('#blog-form').submit();
-}
+};
+
+const blogSuccess = () => {
+	$('#blog-form').fadeOut();
+	$('.alert-success').delay(500).fadeIn();
+};
 
 $(function () {
 	'use strict';
@@ -234,7 +239,7 @@ $(function () {
 				},
 				success: function(data) {
 					$('#cform').fadeOut();
-					$('.alert-success').delay(1000).fadeIn();
+					$('.alert-success').delay(500).fadeIn();
 				},
 				error: function (data) {
 					console.log('error f(x)');

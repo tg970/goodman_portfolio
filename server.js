@@ -57,12 +57,8 @@ app.post('/contact', async (req, res) => {
   }
 });
 
-
-
-
 // using SendGrid's v3 Node.js Library
 // https://github.com/sendgrid/sendgrid-nodejs
-
 
 app.get('/:whatever', (req, res) => res.redirect('/'))
 app.get('/:whatever/:whatever', (req, res) => res.redirect('/'))
