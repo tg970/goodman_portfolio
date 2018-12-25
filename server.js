@@ -2,6 +2,7 @@
 const express    = require('express');
 const app        = express();
 const RateLimit = require('express-rate-limit');
+const helmet = require('helmet');
 const mongoose   = require('mongoose');
 const sgMail     = require('@sendgrid/mail');
 const morgan     = require('morgan');
@@ -36,6 +37,7 @@ var apiLimiter = new RateLimit({
 // Middleware
 app.use('/', apiLimiter);
 app.use(express.urlencoded({ extended: false }));
+app.use(helmet());
 app.use(express.json());
 app.use(express.static('public'));
 app.use(morgan('tiny', {
