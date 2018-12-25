@@ -75,7 +75,7 @@ gulp.task('html', function() {
 
 gulp.task('images', ['clean'], function() {
   return gulp.src('./src/images/**/*.*')
-    .pipe(imagemin({optimizationLevel: 0}))
+    // .pipe(imagemin({optimizationLevel: 0}))
     .pipe(gulp.dest('./public/images'));
 });
 

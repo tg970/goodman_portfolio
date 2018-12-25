@@ -1,12 +1,14 @@
 // DEPENDENCIES
 const express    = require('express');
 const app        = express();
-const RateLimit = require('express-rate-limit');
-const helmet = require('helmet');
+const RateLimit  = require('express-rate-limit');
+const helmet     = require('helmet');
 const mongoose   = require('mongoose');
 const sgMail     = require('@sendgrid/mail');
 const morgan     = require('morgan');
+const compression = require('compression');
 require('pretty-error').start();
+
 
 // Set env variables in dev env
 if (app.get('env') == 'development') require('dotenv').config()
@@ -38,6 +40,7 @@ var apiLimiter = new RateLimit({
 app.use('/', apiLimiter);
 app.use(express.urlencoded({ extended: false }));
 app.use(helmet());
+app.use(compression())
 app.use(express.json());
 app.use(express.static('public'));
 app.use(morgan('tiny', {

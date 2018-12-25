@@ -23,6 +23,7 @@
     "@sendgrid/mail": "^6.3.1",
     "angular": "^1.7.2",
     "angular-route": "^1.7.2",
+    "compression": "^1.7.3",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "express-rate-limit": "^3.3.2",
