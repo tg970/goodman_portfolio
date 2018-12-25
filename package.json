@@ -4,7 +4,8 @@
   "description": "Responsive portfolio site for Tyler Goodman",
   "main": "sever.js",
   "engines": {
-    "npm": "5.x.x"
+    "npm": "6.4.0",
+    "node": "10.8.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
