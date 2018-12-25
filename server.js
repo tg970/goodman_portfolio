@@ -1,6 +1,7 @@
 // DEPENDENCIES
 const express    = require('express');
 const app        = express();
+const RateLimit = require('express-rate-limit');
 const mongoose   = require('mongoose');
 const sgMail     = require('@sendgrid/mail');
 const morgan     = require('morgan');
@@ -11,11 +12,11 @@ if (app.get('env') == 'development') require('dotenv').config()
 
 // CONFIG
 const PORT       = process.env.PORT || 3000;
-const mongoURI   = process.env.MONGODB_URI || 'mongodb://localhost/goodman_portfolio';
+const mongoURI   = process.env.MONGODB_URI || 'mongodb://localhost:27017/goodman_portfolio';
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // Connect to Mongo
-mongoose.connect (mongoURI );
+mongoose.connect ( mongoURI, { useNewUrlParser: true } );
 const db = mongoose.connection;
 db.on( 'error', ( err ) =>
   console.log( err.message + ' is Mongod not running?' ));
@@ -25,7 +26,15 @@ db.on( 'disconnected', () =>
   console.log( 'Mongo Disconnected' ));
 mongoose.Promise = global.Promise;
 
+// rate limit config
+var apiLimiter = new RateLimit({
+  windowMs: 15*60*1000, // 15 minutes
+  max: 1000, // limit each IP to 1000 requests
+  delayMs: 0 // disabled until limit is met
+});
+
 // Middleware
+app.use('/', apiLimiter);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static('public'));
